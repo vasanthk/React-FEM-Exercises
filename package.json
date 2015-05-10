@@ -1,0 +1,38 @@
+{
+  "name": "React-FEM-Exercises",
+  "version": "1.0.0",
+  "description": "React Exercises/Solutions from FrontEndMasters course online",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --port 5000 --inline --no-info --content-base exercises"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vasanthk/React-FEM-Exercises.git"
+  },
+  "author": "Vasa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vasanthk/React-FEM-Exercises/issues"
+  },
+  "homepage": "https://github.com/vasanthk/React-FEM-Exercises",
+  "dependencies": {
+    "MD5": "^1.2.1",
+    "bluebird": "^2.9.25",
+    "flux": "^2.0.3",
+    "jquery": "^2.1.4",
+    "jquery-ui": "^1.10.5",
+    "jsx-loader": "^0.13.2",
+    "node-libs-browser": "^0.5.0",
+    "react": "^0.13.3",
+    "react-router": "^0.13.3",
+    "sort-by": "^1.1.0",
+    "webpack": "^1.9.4",
+    "webpack-dev-server": "^1.8.2"
+  },
+  "devDependencies": {
+    "6to5-core": "^3.6.5",
+    "6to5-loader": "^3.0.0",
+    "expect": "^1.6.0"
+  }
+}
