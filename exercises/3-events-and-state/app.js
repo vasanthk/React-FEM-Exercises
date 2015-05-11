@@ -1,5 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////
-// Excercise:
+// Exercise:
 // - make these tabs work when you click them
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -24,8 +24,8 @@ styles.tab = {
     cursor: 'pointer'
 };
 
-// assign() is used to import styles from styles.tab
-styles.activetab = assign({}, styles.tab, {
+// assign() is used to inherit styles from styles.tab
+styles.activeTab = assign({}, styles.tab, {
     borderBottomColor: '#000'
 });
 
@@ -35,10 +35,26 @@ styles.tabPanels = {
 
 var App = React.createClass({
 
+    getInitialState() {
+        return {
+            activeTabIndex: 0
+        };
+    },
+
+    handleTabClick (activeTabIndex) {
+        // ES6
+        this.setState({activeTabIndex});
+        // This is the same as this.setState({activeTabindex: activeTabIndex});
+    },
+
     renderTabs() {
         return this.props.countries.map((country, index) => {
+            var style = this.state.activeTabIndex === index ? styles.activeTab : styles.tab;
+            var clickHandler = this.handleTabClick.bind(this, index);
+
+            // Anytime you call map() on some data and return some UI, drop a key on it.
             return (
-                <div style={index === 0 ? styles.activetab : styles.tab }>
+                <div key={country.name} style={style} onClick={clickHandler}>
                     {country.name}
                 </div>
             );
@@ -46,7 +62,7 @@ var App = React.createClass({
     },
 
     renderPanel() {
-        var country = this.props.countries[0];
+        var country = this.props.countries[this.state.activeTabIndex];
         return (
             <div>
                 <p>{country.description}</p>
